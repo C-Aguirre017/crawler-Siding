@@ -74,7 +74,7 @@ class Crawler < Methods
       end
     end
 
-    if true || $available_practice
+    if $available_practice
       send_emails(message)
     end
   end
