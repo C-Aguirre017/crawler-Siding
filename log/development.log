@@ -4635,3 +4635,13 @@ Started GET "/assets/application.self-248fbd27849a919e3905629f3dc65822565527e91b
 
 
 Started GET "/assets/engineering.jpg" for ::1 at 2016-07-17 02:46:22 -0400
+
+
+Started GET "/" for ::1 at 2016-07-17 03:00:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticController#home as HTML
+  Rendered static/home.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 385ms (Views: 360.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/engineering.jpg" for ::1 at 2016-07-17 03:00:10 -0400
