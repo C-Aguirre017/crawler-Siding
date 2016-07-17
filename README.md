@@ -1,7 +1,10 @@
 # crawler-Siding for Employability Workshop and Design Career
 
+##Deployment
+  Right now is deploy in ''
+
 ## Code Example
-  EX: `ruby crawler.rb`
+  Ex: `rails s && rake crawler:start`
 
 ## Installation
 
@@ -11,3 +14,5 @@
   --- | ---
   *SECRET_USER* | `your_username`
   *SECRET_PASSWORD* | `your_password`
+  *USER_EMAIL* | `email`
+  *PASS_EMAIL* | `email_password`
