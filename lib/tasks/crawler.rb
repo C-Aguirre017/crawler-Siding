@@ -8,11 +8,11 @@ class Crawler < Methods
   $xpath = "//p[text()='Práctica II']/following-sibling::table"
   $available_practice = false
 
-  def start_crawler(user,pass)
+  def start_crawler
     begin
 
-      user = ENV['SECRET_USER'] || user
-      pass = ENV['SECRET_PASSWORD'] || pass
+      user = ENV['SECRET_USER']
+      pass = ENV['SECRET_PASSWORD']
 
       puts 'Username:' + user
       puts 'Password:' + pass
