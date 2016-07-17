@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="panel panel-primary col-md-3 center">
+    <small>Inscribete para saber si existen cupos disponibles
+      para el Taller de Empleabilidad Práctica II</small>
+    <%= form_for @user do |f| %>
+        <div class="with_margin">
+          <%= f.label :email %><br>
+          <%= f.text_field :email ,placeholder: 'mi_usuario@uc.cl'%>
+        </div>
+        <div class="with_margin">
+          <%= f.submit 'Registrarse!', class: 'btn btn-primary'%>
+        </div>
+    <% end %>
+  </div>
+</div>

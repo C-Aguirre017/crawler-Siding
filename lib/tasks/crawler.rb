@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'rest-client'
 
 require_relative 'methods.rb'
 
@@ -9,18 +8,22 @@ class Crawler < Methods
   $xpath = "//p[text()='Práctica II']/following-sibling::table"
   $available_practice = false
 
-  def start_crawler
+  def start_crawler(user,pass)
     begin
 
+      user = ENV['SECRET_USER'] || user
+      pass = ENV['SECRET_PASSWORD'] || pass
+
+      puts 'Username:' + user
+      puts 'Password:' + pass
+
       #Iniciar para Obtener Cookies
-      Post($host + '/siding/index.phtml','', 'Primera', {'login' => ENV['SECRET_USER'], 'passwd' => ENV['SECRET_PASSWORD']} , 1)
+      Post($host + '/siding/index.phtml','', 'Primera', {'login' => user, 'passwd' => pass} , 1)
 
       res = Get($host + '/siding/dirdoc/actividades/inscripciones/inscripcion/usuario/index.phtml', 'Segunda', 1)
 
       get_info(res,2)
       print_result()
-
-      return $available_practice
 
     rescue Exception => e
       puts "[!] Error al intentar hacer consulta: " + e.to_s
@@ -48,6 +51,7 @@ class Crawler < Methods
 
     doc = Nokogiri::HTML(res)
     table = doc.xpath($xpath)
+    message = ''
 
     if table.size > 0
       table[0..-1].each_with_index do |table,i|
@@ -60,6 +64,7 @@ class Crawler < Methods
                 $available_practice = true
               end
             end
+            message += "\t" +  rows + "\n"
             puts rows
           end
 
@@ -69,11 +74,22 @@ class Crawler < Methods
       end
     end
 
-    return $available_practice
+    if true || $available_practice
+      send_emails(message)
+    end
+  end
+
+  def send_emails(message)
+    User.all.each do |user|
+      if !user.is_sent
+        begin
+          UserMailer.practice_email(user,message).deliver_now
+          user.update_attributes(is_sent: true)
+        rescue Exception => e
+          puts "[!] Error: " + e.to_s
+        end
+      end
+    end
   end
 
 end
-
-puts "[+] Realizando Busqueda Taller de Empleabilidad Practica II"
-crawler = Crawler.new
-crawler.start_crawler()
