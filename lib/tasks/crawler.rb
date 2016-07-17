@@ -11,11 +11,8 @@ class Crawler < Methods
   def start_crawler
     begin
 
-      user = ENV['SECRET_USER']
-      pass = ENV['SECRET_PASSWORD']
-
-      puts 'Username:' + user
-      puts 'Password:' + pass
+      user = ENV['SECRET_USER'] || ''
+      pass = ENV['SECRET_PASSWORD'] || ''
 
       #Iniciar para Obtener Cookies
       Post($host + '/siding/index.phtml','', 'Primera', {'login' => user, 'passwd' => pass} , 1)
@@ -27,7 +24,6 @@ class Crawler < Methods
 
     rescue Exception => e
       puts "[!] Error al intentar hacer consulta: " + e.to_s
-      exit
     end
 
   end
