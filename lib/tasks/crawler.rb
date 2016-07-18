@@ -70,14 +70,14 @@ class Crawler < Methods
       end
     end
 
-    if $available_practice
+    if true || $available_practice
       send_emails(message)
     end
   end
 
   def send_emails(message)
     User.all.each do |user|
-      if !user.is_sent
+      if true || !user.is_sent
         begin
           UserMailer.practice_email(user,message).deliver_now
           user.update_attributes(is_sent: true)
