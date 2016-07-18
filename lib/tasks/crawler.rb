@@ -7,7 +7,7 @@ class Crawler < Methods
   $host = "https://intrawww.ing.puc.cl"
   $xpath = "//p[text()='Práctica II']/following-sibling::table"
   $available_practice = false
-  $testing = false
+  $testing = true
 
   def start_crawler
     begin

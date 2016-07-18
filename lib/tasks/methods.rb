@@ -68,6 +68,4 @@ class Methods
     end
   end
 
-
-
 end
