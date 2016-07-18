@@ -7,6 +7,7 @@ class Crawler < Methods
   $host = "https://intrawww.ing.puc.cl"
   $xpath = "//p[text()='Práctica II']/following-sibling::table"
   $available_practice = false
+  $testing = false
 
   def start_crawler
     begin
@@ -70,14 +71,14 @@ class Crawler < Methods
       end
     end
 
-    if true || $available_practice
+    if $available_practice || $testing
       send_emails(message)
     end
   end
 
   def send_emails(message)
     User.all.each do |user|
-      if true || !user.is_sent
+      if !user.is_sent || $testing
         begin
           UserMailer.practice_email(user,message).deliver_now
           user.update_attributes(is_sent: true)
