@@ -6,6 +6,5 @@ namespace :crawler do
     crawler = Crawler.new
     puts '[+] Realizando Busqueda Taller de Empleabilidad Practica II'
     crawler.start_crawler
-    puts '[!] Realizado con Exito'
   end
 end

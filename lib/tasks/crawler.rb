@@ -21,7 +21,8 @@ class Crawler < Methods
 
       get_info(res,2)
       print_result()
-
+      puts '[!] Realizado con Exito'
+      
     rescue Exception => e
       puts "[!] Error al intentar hacer consulta: " + e.to_s
     end
