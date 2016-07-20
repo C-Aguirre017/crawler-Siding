@@ -5394,3 +5394,20 @@ Migrating to CreateUsers (20160717044316)
   [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at") VALUES (?, ?, ?)  [["email", "c.aguirre017@gmail.com"], ["created_at", "2016-07-19 18:14:26.957040"], ["updated_at", "2016-07-19 18:14:26.957040"]]
   [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
   [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+UserMailer#notice_email: processed outbound mail in 156.0ms
+
+Sent mail to c.aguirre017@gmail.com (2151.4ms)
+Date: Tue, 19 Jul 2016 14:19:42 -0400
+From: practicaII@ing.puc.cl
+To: c.aguirre017@gmail.com
+Message-ID: <578e6f3e2acb_11cf63fda7e05e1f820628@Carlos-MacBook-Pro.local.mail>
+Subject: 07/19/16- Crawler Funcionando
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Email de Funcionamiento del Crwaler: 
+

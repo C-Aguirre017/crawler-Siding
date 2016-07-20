@@ -8,18 +8,18 @@ class UserMailer < ApplicationMailer
            to: user.email,
            body: email_body
     else
-      puts 'User is null'
+      puts '[!] User is null'
     end
   end
 
   def notice_email(user,email_body)
-    email_body = "Email de Funcionamiento del Crwaler: \n"
+    email_body = "Email de Funcionamiento del Crawler: \n" +  email_body
     if user
       mail subject: Date.current.strftime("%x").to_s +  "- Crawler Funcionando",
            to: user.email,
            body: email_body
     else
-      puts 'User is null'
+      puts '[!] User is null'
     end
   end
 
