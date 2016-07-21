@@ -22,7 +22,7 @@ class Crawler < Methods
       get_info(res,2)
       print_result()
       puts '[!] Realizado con Exito'
-      
+
     rescue Exception => e
       puts "[!] Error al intentar hacer consulta: " + e.to_s
     end
@@ -71,7 +71,7 @@ class Crawler < Methods
       end
     end
 
-    send_notice(message)
+    #send_notice(message)
     if $available_practice
       send_emails(message)
     end
