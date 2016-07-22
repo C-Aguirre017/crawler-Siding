@@ -3,9 +3,7 @@
   This is a simple crawler application that runs every day using heroku scheduller to see if there is any spot available in the Employability Workshop and Design Career.
 
 ## Deployment
-  Right now is deploy in heroku:
-  
-  tallerdeempleabilidad.herokuapp.com
+  Right now is deploy in heroku:    https://tallerdeempleabilidad.herokuapp.com/
 
 ## Code Example
   Ex: `rails s && rake crawler:start`
